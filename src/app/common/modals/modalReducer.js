@@ -1,5 +1,5 @@
 const OPEN_MODAL = "OPEN_MODAL";
-const CLOSE_MODAL = "CLOASE_MODAL";
+const CLOSE_MODAL = "CLOSE_MODAL";
 
 export function openModal(payload) {
   return {
