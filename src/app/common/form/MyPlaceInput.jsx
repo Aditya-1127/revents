@@ -1,4 +1,4 @@
-import { Field, useField } from "formik";
+import { useField } from "formik";
 import React from "react";
 import { FormField, Label, List, Segment } from "semantic-ui-react";
 import PlacesAutocomplete, {
