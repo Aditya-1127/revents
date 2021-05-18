@@ -18,6 +18,13 @@ export function createEvent(event) {
   };
 }
 
+export function listenToEvents(events){
+  return {
+    type: FETCH_EVENT,
+    payload: events
+
+  }
+}
 export function updateEvent(event) {
   return {
     type: UPDATE_EVENT,
