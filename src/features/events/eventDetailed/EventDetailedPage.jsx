@@ -24,7 +24,7 @@ export default function EventDetailedPage({ match }) {
     deps: [match.params.id, dispatch],
   });
 
-  if (loading || (!event && !error)) return <LoadingComponent content='Loading events...' />
+  if (loading || (!event && !error)) return <LoadingComponent content='Loading events...' /> // if we dont have an event or an error either
 
   if(error) return <Redirect to='/error'/>
 
