@@ -16,7 +16,7 @@ export default function authReducer(state = initialState, { type, payload }) {
           photoURL: payload.photoURL,
           uid: payload.uid,
           displayName: payload.displayName,
-          providerId: payload.providerData[0].providerId
+          providerId: payload.providerData[0].providerId // used provider id to know from what way did the user signed in to the app(password/google/facebook)
         },
       };
     case SIGN_OUT_USER:

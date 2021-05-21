@@ -6,10 +6,7 @@ import MyTextInput from "../../app/common/form/MyTextInput";
 import { Button, Divider, Label } from "semantic-ui-react";
 import { useDispatch } from "react-redux";
 import { closeModal } from "../../app/common/modals/modalReducer";
-import {
-  registerInFirebase,
-  signInWithEmail,
-} from "../../app/firestore/firebaseService";
+import { registerInFirebase } from "../../app/firestore/firebaseService";
 import SocialLogin from "./SocialLogin";
 
 export default function RegisterForm() {
@@ -62,10 +59,8 @@ export default function RegisterForm() {
               color="teal"
               content="Register"
             />
-            <Divider horizontal>
-              Or
-            </Divider>
-            <SocialLogin/>
+            <Divider horizontal>Or</Divider>
+            <SocialLogin />
           </Form>
         )}
       </Formik>
