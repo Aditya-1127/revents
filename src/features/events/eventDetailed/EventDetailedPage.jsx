@@ -14,9 +14,12 @@ import { Redirect } from "react-router";
 export default function EventDetailedPage({ match }) {
   const dispatch = useDispatch();
   const { loading, error } = useSelector((state) => state.async);
+  const { currentUser } = useSelector((state) => state.auth);
   const event = useSelector((state) =>
     state.event.events.find((e) => e.id === match.params.id)
   );
+  const isHost = event?.hostUid === currentUser.uid;
+  const isGoing = event?.attendees?.some((a) => a.id === currentUser.uid);
 
   useFirestoreDoc({
     query: () => listenToEventFromFirestore(match.params.id),
@@ -24,19 +27,19 @@ export default function EventDetailedPage({ match }) {
     deps: [match.params.id, dispatch],
   });
 
-  if (loading || (!event && !error)) return <LoadingComponent content='Loading events...' /> // if we dont have an event or an error either
-
-  if(error) return <Redirect to='/error'/>
+  if (loading || (!event && !error))
+    return <LoadingComponent content="Loading events..." />; // if we don't have an event or an error either
+  if (error) return <Redirect to="/error" />;
 
   return (
     <Grid>
       <Grid.Column width={10}>
-        <EventDetailedHeader event={event} />
+        <EventDetailedHeader event={event} isGoing={isGoing} isHost={isHost} />
         <EventDetailedInfo event={event} />
         <EventDetailedChat />
       </Grid.Column>
       <Grid.Column width={6}>
-        <EventDetailedSideBar attendees={event?.attendees} /> 
+        <EventDetailedSideBar attendees={event?.attendees} hostUid={event.hostUid}/>
         {/* this basically means that we may have attendees and we may not have them */}
       </Grid.Column>
     </Grid>
