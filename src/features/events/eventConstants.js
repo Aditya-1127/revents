@@ -1,4 +1,6 @@
-export const  CREATE_EVENT = 'CREATE_EVENT';
-export const  UPDATE_EVENT = 'UPDATE_EVENT';
-export const  DELETE_EVENT = 'DELETE_EVENT';
-export const  FETCH_EVENT = 'FETCH_EVENT';
+export const CREATE_EVENT = "CREATE_EVENT";
+export const UPDATE_EVENT = "UPDATE_EVENT";
+export const DELETE_EVENT = "DELETE_EVENT";
+export const FETCH_EVENT = "FETCH_EVENT";
+export const LISTEN_TO_EVENTS_CHAT = "LISTEN_TO_EVENTS_CHAT";
+export const CLEAR_COMMENTS = 'CLEAR_COMMENTS'

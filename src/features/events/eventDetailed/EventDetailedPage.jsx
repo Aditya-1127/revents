@@ -36,10 +36,13 @@ export default function EventDetailedPage({ match }) {
       <Grid.Column width={10}>
         <EventDetailedHeader event={event} isGoing={isGoing} isHost={isHost} />
         <EventDetailedInfo event={event} />
-        <EventDetailedChat />
+        <EventDetailedChat eventId={event.id} />
       </Grid.Column>
       <Grid.Column width={6}>
-        <EventDetailedSideBar attendees={event?.attendees} hostUid={event.hostUid}/>
+        <EventDetailedSideBar
+          attendees={event?.attendees}
+          hostUid={event.hostUid}
+        />
         {/* this basically means that we may have attendees and we may not have them */}
       </Grid.Column>
     </Grid>

@@ -8,6 +8,7 @@ import {
   CREATE_EVENT,
   DELETE_EVENT,
   FETCH_EVENT,
+  LISTEN_TO_EVENTS_CHAT,
   UPDATE_EVENT,
 } from "./eventConstants";
 
@@ -50,4 +51,11 @@ export function loadEvents() {
       dispatch(asyncActionError(error));
     }
   };
+}
+
+export function listenToEventsChat(comments) {
+  return {
+    type: LISTEN_TO_EVENTS_CHAT,
+    payload: comments
+  }
 }
